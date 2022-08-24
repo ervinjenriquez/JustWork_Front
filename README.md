@@ -2,7 +2,7 @@
 Built with ReactJS
 
 # Branch Naming:
-`<ID>_<Feature>` `ex: 1.1_AddDay`
+`<ID>_<Feature>` `ex: 1.1_MainDayPage`
 
 # TODO:
 ## Day components:
