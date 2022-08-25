@@ -33,14 +33,6 @@ export default function MainDayPage(props) {
     return (
         <>
             <h1>JustWork</h1>
-            <ul>
-                {
-                    DayList.map((day, key) => {
-                        return <li key={key}>{day.title} and {day.description} and its ID {day.id}</li>
-                    })
-                }
-            </ul>
-
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
