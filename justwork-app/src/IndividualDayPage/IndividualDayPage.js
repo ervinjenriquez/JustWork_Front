@@ -6,9 +6,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Switch } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function MainDayPage(props) {
+
+export default function IndividualDayPage(props) {
 
     const [DayList, setDayList] = useState([]);
 
@@ -42,7 +44,6 @@ export default function MainDayPage(props) {
                         <TableRow>
                             <TableCell align="center">ID</TableCell>
                             <TableCell align="center">Title</TableCell>
-                            <TableCell align="center">Description</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -55,12 +56,16 @@ export default function MainDayPage(props) {
                                     {day.id}
                                 </TableCell>
 
-                                <TableCell align="center">
-                                    <Link to={`/individualDayPage/${day.id}`}>
-                                        {day.title}
-                                    </Link>
-                                </TableCell>
-                                <TableCell align="center">{day.description}</TableCell>
+                                {DayList.map((exercises) => (
+
+
+                                    <TableCell align="center"
+                                        key={day.exercises.title}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                        {day.exercises.title}
+                                    </TableCell>
+                                ))
+                                }
                             </TableRow>
                         ))}
                     </TableBody>
