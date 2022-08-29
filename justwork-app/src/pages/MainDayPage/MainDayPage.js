@@ -33,9 +33,6 @@ export default function MainDayPage(props) {
 
     return (
         <>
-
-
-            <h1><a href="/">JustWork</a></h1>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
