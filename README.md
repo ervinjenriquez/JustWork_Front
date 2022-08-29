@@ -13,7 +13,7 @@ Built with ReactJS
     1.5 Delete day modal (modal pops up on Main day page, deletes a Day)
 
 ## Shared components:
-    2.1 Create global header
-    2.2 Create global footer
-    2.3 Create global styling? 
+    2.1 Global header
+    2.2 Global footer
+    2.3 Global styling? 
 
