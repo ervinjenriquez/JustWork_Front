@@ -6,24 +6,23 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Switch } from "@mui/material";
-import { Link } from "react-router-dom";
-
+import { useParams } from 'react-router-dom';
 
 export default function IndividualDayPage(props) {
 
-    const [DayList, setDayList] = useState([]);
+    const [ExerciseList, setExerciseList] = useState([]);
+    const { dayId } = useParams();
 
     //localhost:8080/days
 
     useEffect(() => {
-        const url = '//localhost:8080/days'
+        const url = '//localhost:8080/days/' + dayId;
 
         const fetchData = async () => {
             try {
                 const response = await fetch(url);
                 const json = await response.json();
-                setDayList(json);
+                setExerciseList(json.exercises);
             } catch (error) {
                 console.log("error", error);
             }
@@ -35,37 +34,26 @@ export default function IndividualDayPage(props) {
 
     return (
         <>
-
-
             <h1>JustWork</h1>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell align="center">ID</TableCell>
-                            <TableCell align="center">Title</TableCell>
+                            <TableCell align="center">Exercise</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {DayList.map((day) => (
+                        {ExerciseList.map((exercise) => (
                             <TableRow
-                                key={day.title}
+                                key={exercise.id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row" align="center">
-                                    {day.id}
+                                    {exercise.id}
                                 </TableCell>
 
-                                {DayList.map((exercises) => (
-
-
-                                    <TableCell align="center"
-                                        key={day.exercises.title}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                        {day.exercises.title}
-                                    </TableCell>
-                                ))
-                                }
+                                <TableCell align="center">{exercise.title}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

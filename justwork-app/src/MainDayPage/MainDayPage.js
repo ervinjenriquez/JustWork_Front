@@ -35,7 +35,7 @@ export default function MainDayPage(props) {
         <>
 
 
-            <h1>JustWork</h1>
+            <h1><a href="/">JustWork</a></h1>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -48,7 +48,7 @@ export default function MainDayPage(props) {
                     <TableBody>
                         {DayList.map((day) => (
                             <TableRow
-                                key={day.title}
+                                key={day.id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row" align="center">
