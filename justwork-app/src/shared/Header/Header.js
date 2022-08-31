@@ -61,7 +61,11 @@ export default function Header() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            <a id="headerHomeLink"href="/">Just Work</a>
+            <a id="headerHomeLink"href="/">
+              <div id="headerHomeLink">
+                Just Work
+              </div>
+            </a>
           </Typography>
           <Search>
             <SearchIconWrapper>
