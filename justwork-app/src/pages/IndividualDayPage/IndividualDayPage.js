@@ -13,8 +13,6 @@ export default function IndividualDayPage(props) {
     const [ExerciseList, setExerciseList] = useState([]);
     const { dayId } = useParams();
 
-    //localhost:8080/days
-
     useEffect(() => {
         const url = '//localhost:8080/days/' + dayId;
 
@@ -29,12 +27,11 @@ export default function IndividualDayPage(props) {
         };
 
         fetchData();
-    }, []);
+    }, [dayId]);
 
 
     return (
         <>
-            <h1>JustWork</h1>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>

@@ -1,0 +1,17 @@
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+    background-color: #AB6465 !important;
+}
+
+#headerHomeLink {
+    text-decoration: none;
+    
+}
+
+#headerHomeLink:visited { 
+    text-decoration: none;
+    color:white; 
+}
+
+#headerHomeLink:hover {
+    color: black;
+}
