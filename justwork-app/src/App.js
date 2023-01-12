@@ -3,6 +3,7 @@ import MainDayPage from "./pages/MainDayPage/MainDayPage";
 import IndividualDayPage from "./pages/IndividualDayPage/IndividualDayPage";
 import { Route, Routes } from "react-router-dom";
 import Header from "./shared/Header/Header";
+import Footer from "./shared/Footer/Footer";
 /*
 Challenge: Build the Hero component.
 Check the Figma file for the design specifics.
@@ -21,6 +22,7 @@ export default function App() {
           } 
         />
       </Routes>
+      <Footer />
     </div>
   )
 }
