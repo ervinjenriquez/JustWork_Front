@@ -38,6 +38,7 @@ export default function MainDayPage() {
                             <TableCell align="center">ID</TableCell>
                             <TableCell align="center">Title</TableCell>
                             <TableCell align="center">Description</TableCell>
+                            <TableCell align="center"><NewDayForm url={url}/></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -64,7 +65,6 @@ export default function MainDayPage() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <NewDayForm url={url}/>
         </>
     )
 }

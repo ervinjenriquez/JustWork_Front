@@ -41,7 +41,7 @@ export default function NewDayForm(props) {
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickNewDay}>
+            <Button variant="outlined" onClick={handleClickNewDay} text-align="center">
                 New Day
             </Button>
             <Dialog open={openNewDay} onClose={handleCloseNewDay}>
