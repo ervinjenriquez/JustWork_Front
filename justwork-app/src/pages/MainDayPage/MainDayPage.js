@@ -6,17 +6,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import NewDayForm from './NewDayForm.js';
 import { Link } from "react-router-dom";
+import DeleteDayModal from './DeleteDayModal.js';
 
-export default function MainDayPage(props) {
+
+export default function MainDayPage() {
 
     const [DayList, setDayList] = useState([]);
 
-    //localhost:8080/days
+    const url = '//localhost:8080/days';
 
     useEffect(() => {
-        const url = '//localhost:8080/days'
-
         const fetchData = async () => {
             try {
                 const response = await fetch(url);
@@ -26,10 +27,8 @@ export default function MainDayPage(props) {
                 console.log("error", error);
             }
         };
-
         fetchData();
     }, []);
-
 
     return (
         <>
