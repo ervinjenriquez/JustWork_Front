@@ -28,7 +28,7 @@ export default function MainDayPage() {
             }
         };
         fetchData();
-    }, [DayList]);
+    }, []);
 
     return (
         <div>
