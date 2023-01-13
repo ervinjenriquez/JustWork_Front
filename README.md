@@ -14,6 +14,6 @@ Built with ReactJS
 
 ## Shared components:
     2.1 Global header --- MVP DONE
-    2.2 Global footer
+    2.2 Global footer --- MVP DONE
     2.3 Global styling? 
 
