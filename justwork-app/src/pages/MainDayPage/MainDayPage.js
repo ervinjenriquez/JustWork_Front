@@ -22,6 +22,7 @@ export default function MainDayPage() {
                 const response = await fetch(url);
                 const json = await response.json();
                 setDayList(json);
+                console.log(json);
             } catch (error) {
                 console.log("error", error);
             }
@@ -47,17 +48,17 @@ export default function MainDayPage() {
                                 key={day.id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                                <TableCell component="th" scope="row" align="center">
+                                <TableCell component="th" scope="row" align="center" data-test-id="IndividualDayId">
                                     {day.id}
                                 </TableCell>
 
-                                <TableCell align="center">
-                                    <Link to={`/individualDayPage/${day.id}`}>
+                                <TableCell align="center" >
+                                    <Link to={`/individualDayPage/${day.id}`} data-test-id="IndividualDayLink">
                                         {day.title}
                                     </Link>
                                 </TableCell>
-                                <TableCell align="center">{day.description}</TableCell>
-                                <TableCell align="center">
+                                <TableCell align="center" data-testid="IndividualDayDescription">{day.description}</TableCell>
+                                <TableCell align="center" data-test-id="IndividualDayDelete">
                                     <DeleteDayModal dayid={day.id}/>
                                 </TableCell>
                             </TableRow>
@@ -68,4 +69,3 @@ export default function MainDayPage() {
         </>
     )
 }
-
