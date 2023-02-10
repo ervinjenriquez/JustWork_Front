@@ -5,7 +5,7 @@ import { createMemoryHistory } from "history";
 
 import MainDayPage from "./MainDayPage";
 
-describe("MainDayPage renders and has the corect coloumns", () => {
+describe("MainDayPage renders and has the correct coloumns and values", () => {
   let originalFetch;
 
   beforeEach(() => {
@@ -35,15 +35,42 @@ describe("MainDayPage renders and has the corect coloumns", () => {
     global.fetch = originalFetch;
   });
 
-  it("Should have the mocked values in the correct locations", async () => {
+  it("should display the description column and the values correctly.", async () => {
     const history = createMemoryHistory(); // we need to define a mock history to the router
     render(
       <MemoryRouter history={history}> 
         <MainDayPage />
       </MemoryRouter>
     );// MemoryRouter is more performant for tests
+
     const description = await screen.findAllByTestId("IndividualDayDescription");
     expect(description[0].textContent).toBe("Mock Description1");
     expect(description[1].textContent).toBe("Mock Description2");
+  });
+
+  it("should display the title column and the values correctly.", async () => {
+    const history = createMemoryHistory(); // we need to define a mock history to the router
+    render(
+      <MemoryRouter history={history}> 
+        <MainDayPage />
+      </MemoryRouter>
+    );// MemoryRouter is more performant for tests
+
+    const title = await screen.findAllByTestId("IndividualDayTitle")
+    expect(title[0].textContent).toBe("Mock Title1");
+    expect(title[1].textContent).toBe("Mock Title2");
+  });
+
+  it("should display the id column and the values correctly.", async () => {
+    const history = createMemoryHistory(); // we need to define a mock history to the router
+    render(
+      <MemoryRouter history={history}> 
+        <MainDayPage />
+      </MemoryRouter>
+    );// MemoryRouter is more performant for tests
+
+    const id = await screen.findAllByTestId("IndividualDayId")
+    expect(id[0].textContent).toBe("1");
+    expect(id[1].textContent).toBe("2");
   });
 });
