@@ -11,7 +11,8 @@ import DialogContentText from '@mui/material/DialogContentText';
 export default function DeleteDayModal(props) {
 
     const [open, setOpen] = useState(false);
-    const dayId = props.dayid;
+    const dayId = props.dayId;
+    const dayTitle = props.dayTitle;
 
     const handleClickTrashcan = () => {
         setOpen(true);
@@ -29,7 +30,10 @@ export default function DeleteDayModal(props) {
         console.log('delete successful.');
         
         handleClose();
+        reload();
     }
+
+    const reload = () => window.location.reload();
 
     return (
     <div>
@@ -48,7 +52,7 @@ export default function DeleteDayModal(props) {
              </DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
-                    Are you sure you want to permanently delete day ID with title TITLE?
+                    {"Are you sure you want to permanently delete \"" + dayTitle + "\"?"}
                 </DialogContentText>
             </DialogContent>
             <DialogActions>

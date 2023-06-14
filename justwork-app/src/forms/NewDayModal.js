@@ -37,7 +37,20 @@ export default function NewDayForm(props) {
         setDescription("");
 
         handleCloseNewDay();
+        reload();
     };
+
+    const validation = () => {
+        formRef.current.reportValidity()
+
+        if (formRef.current.reportValidity() !== false) {
+            handleConfirmNewDay();
+        }
+    }
+
+    const reload = () => window.location.reload();
+
+    const formRef = React.useRef();
 
     return (
         <div>
@@ -50,30 +63,32 @@ export default function NewDayForm(props) {
                     <DialogContentText>
                         To add a new day to your workout, please enter a title and description here.
                     </DialogContentText>
-                    <TextField
-                        autoFocus
-                        required
-                        fullWidth
-                        margin="dense"
-                        id="title"
-                        label="Title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                    <TextField
-                        required
-                        fullWidth
-                        multiline
-                        margin="dense"
-                        id="description"
-                        label="Description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
+                    <form ref={formRef}>
+                        <TextField
+                            autoFocus
+                            required
+                            fullWidth
+                            margin="dense"
+                            id="title"
+                            label="Title"
+                            value={title || ""}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                        <TextField
+                            required
+                            fullWidth
+                            multiline
+                            margin="dense"
+                            id="description"
+                            label="Description"
+                            value={description || ""}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </form>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseNewDay}>Cancel</Button>
-                    <Button onClick={handleConfirmNewDay}>Confirm</Button>
+                    <Button type="submit" onClick={() => validation()}>Confirm</Button>
                 </DialogActions>
             </Dialog>
         </div>
