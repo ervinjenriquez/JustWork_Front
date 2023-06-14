@@ -88,7 +88,7 @@ export default function NewDayForm(props) {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseNewDay}>Cancel</Button>
-                    <Button type="submit" onClick={() => validation()}>Confirm</Button>
+                    <Button onClick={() => validation()}>Confirm</Button>
                 </DialogActions>
             </Dialog>
         </div>
