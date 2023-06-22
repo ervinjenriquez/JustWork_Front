@@ -7,36 +7,36 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import TextField from '@mui/material/TextField';
 
-export default function NewDayModal(props) {
+export default function NewExerciseForm(props) {
 
-    const [openNewDay, setOpenNewDay] = useState(false);
+    const [openNewExercise, setOpenNewExercise] = useState(false);
     const [title, setTitle] = useState(null);
-    const [description, setDescription] = useState(null);
+    const url = '//localhost:8080/exercises/' + props.dayId;
 
-    const handleClickNewDay = () => {
-        setOpenNewDay(true);
+    const handleClickNewExercise = () => {
+        setOpenNewExercise(true);
+
     };
 
-    const handleCloseNewDay = () => {
-        setOpenNewDay(false);
+    const handleCloseNewExercise = () => {
+        setOpenNewExercise(false);
     };
 
-    const handleConfirmNewDay = async () => {
+    const handleConfirmNewExercise = async () => {
 
-        const day = { title, description };
+        const exercise = { title };
         const request = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(day)
+            body: JSON.stringify(exercise)
         };
-        await fetch(props.url, request);
-        console.log('new day added');
+        await fetch(url, request);
+        console.log('new exercise added');
 
         // Resets text fields.
         setTitle("");
-        setDescription("");
 
-        handleCloseNewDay();
+        handleCloseNewExercise();
         reload();
     };
 
@@ -44,7 +44,7 @@ export default function NewDayModal(props) {
         formRef.current.reportValidity()
 
         if (formRef.current.reportValidity() !== false) {
-            handleConfirmNewDay();
+            handleConfirmNewExercise();
         }
     }
 
@@ -54,14 +54,14 @@ export default function NewDayModal(props) {
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickNewDay} text-align="center">
-                New Day
+            <Button variant="outlined" onClick={handleClickNewExercise} text-align="center">
+                New exercise
             </Button>
-            <Dialog open={openNewDay} onClose={handleCloseNewDay}>
-                <DialogTitle>Add a New Day</DialogTitle>
+            <Dialog open={openNewExercise} onClose={handleCloseNewExercise}>
+                <DialogTitle>Add a New exercise</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        To add a new day to your workout, please enter a title and description here.
+                        To add a new exercise to your workout, please enter a title here.
                     </DialogContentText>
                     <form ref={formRef}>
                         <TextField
@@ -74,20 +74,10 @@ export default function NewDayModal(props) {
                             value={title || ""}
                             onChange={(e) => setTitle(e.target.value)}
                         />
-                        <TextField
-                            required
-                            fullWidth
-                            multiline
-                            margin="dense"
-                            id="description"
-                            label="Description"
-                            value={description || ""}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
                     </form>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleCloseNewDay}>Cancel</Button>
+                    <Button onClick={handleCloseNewExercise}>Cancel</Button>
                     <Button onClick={() => validation()}>Confirm</Button>
                 </DialogActions>
             </Dialog>

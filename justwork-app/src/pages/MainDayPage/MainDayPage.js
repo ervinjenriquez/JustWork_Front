@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Link } from "react-router-dom";
-import NewDayForm from '../../forms/NewDayModal.js';
+import NewDayModal from '../../forms/NewDayModal.js';
 import DeleteDayModal from '../../forms/DeleteDayModal.js';
 
 export default function MainDayPage() {
@@ -38,7 +38,7 @@ export default function MainDayPage() {
                             <TableCell align="center">ID</TableCell>
                             <TableCell align="center">Title</TableCell>
                             <TableCell align="center">Description</TableCell>
-                            <TableCell align="center"><NewDayForm url={url}/></TableCell>
+                            <TableCell align="center"><NewDayModal url={url}/></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
